@@ -12,7 +12,7 @@ class App {
         if (sentence.isEmpty()) {
             return wordsCount;
         }
-        for(String word : words) {
+        for (String word : words) {
             if (!wordsCount.containsKey(word)) {
                 wordsCount.put(word, 1);
             } else {
@@ -27,8 +27,8 @@ class App {
             return "{}";
         }
         var result = "{\n";
-        for(Map.Entry<String, Integer> map : wordsCount.entrySet()) {
-            result +="  " + map.getKey() + ": " + map.getValue() + "\n";
+        for (Map.Entry<String, Integer> map : wordsCount.entrySet()) {
+            result += "  " + map.getKey() + ": " + map.getValue() + "\n";
         }
         result += "}";
         return result;
