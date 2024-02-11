@@ -5,38 +5,33 @@ import java.util.Map;
 
 // BEGIN
 class App {
-    public static Map getWordCount(String sentence) {
 
-        String[] words = sentence.split(" ");
-        Map map = new HashMap();
-
-        if (sentence.length() == 0) {
-            return map;
+    public static Map<String, Integer> getWordCount(String sentence) {
+        var words = sentence.split(" ");
+        Map<String, Integer> wordsCount = new HashMap<>();
+        if (sentence.isEmpty()) {
+            return wordsCount;
         }
-
         for (String word : words) {
-            int wordCount = (int) map.getOrDefault(word, 0);
-            wordCount += 1;
-            map.put(word, wordCount);
+            if (!wordsCount.containsKey(word)) {
+                wordsCount.put(word, 1);
+            } else {
+                wordsCount.put(word, wordsCount.get(word) + 1);
+            }
         }
-
-        return map;
+        return wordsCount;
     }
 
-    public static String toString(Map wordsCount) {
-
+    public static String toString(Map<String, Integer> wordsCount) {
         if (wordsCount.isEmpty()) {
             return "{}";
         }
-
-        StringBuilder result = new StringBuilder("{\n");
-
-        for (Object key : wordsCount.keySet()) {
-            result.append("  " + key + ": " + wordsCount.get(key) + "\n");
+        var result = "{\n";
+        for (Map.Entry<String, Integer> map : wordsCount.entrySet()) {
+            result += "  " + map.getKey() + ": " + map.getValue() + "\n";
         }
-
-        result.append("}");
-        return result.toString();
+        result += "}";
+        return result;
     }
 }
 //END
