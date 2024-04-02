@@ -1,7 +1,7 @@
 package exercise;
 
 // BEGIN
-public class Cottage implements Home{
+public class Cottage implements Home {
     double area;
 
     int floorCount;
