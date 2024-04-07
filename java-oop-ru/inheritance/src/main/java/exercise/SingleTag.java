@@ -13,7 +13,7 @@ public class SingleTag extends Tag {
     public String toString() {
         StringBuilder result = new StringBuilder("<");
         result.append(getName());
-        for(Map.Entry entry : getAttributes().entrySet()) {
+        for (Map.Entry entry : getAttributes().entrySet()) {
             result.append(" ").append(entry.getKey()).append("=\"").append(entry.getValue()).append("\"");
         }
         result.append(">");
