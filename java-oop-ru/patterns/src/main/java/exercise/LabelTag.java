@@ -1,7 +1,7 @@
 package exercise;
 
 // BEGIN
-public class LabelTag implements TagInterface{
+public class LabelTag implements TagInterface {
     private String tag;
     private TagInterface childTag;
 
