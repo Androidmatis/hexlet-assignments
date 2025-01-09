@@ -11,9 +11,11 @@ public final class App {
         // BEGIN
         // Создаем приложение
         var app = Javalin.create(config -> {
+            // Включаем логгирование при разработке
             config.bundledPlugins.enableDevLogging();
         });
-        // Описываем, что загрузится по адресу /
+
+        // Описываем, что будет происходить при GET запросе на адрес
         app.get("/", ctx -> ctx.result("Hello World"));
         // Возвращаем настроенное приложение
         return app;
