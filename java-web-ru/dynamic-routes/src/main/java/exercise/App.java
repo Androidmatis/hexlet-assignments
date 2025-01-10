@@ -23,7 +23,7 @@ public final class App {
         app.get("/companies/{id}", ctx -> {
             var id = ctx.pathParam("id");
             var company = COMPANIES.stream().filter(c -> c.get("id").equals(id))
-                        .findFirst().orElseThrow(() -> new NotFoundResponse("Entity with id = " + id + " not found"));
+                        .findFirst().orElseThrow(() -> new NotFoundResponse("Company not found"));
             ctx.json(company);
         });
         // END
