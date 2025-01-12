@@ -1,8 +1,6 @@
 package exercise;
 
 import io.javalin.Javalin;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -29,7 +27,7 @@ public final class App {
         app.get("/users/{id}", ctx -> {
             var id = ctx.pathParamAsClass("id", Long.class);
             var user = Data.getUsers().stream().filter(c -> Objects.equals(c.getId(), id.get())).findFirst()
-                    .orElseThrow(() -> new NotFoundResponse("User not found"));;
+                    .orElseThrow(() -> new NotFoundResponse("User not found"));
             var page = new UserPage(user);
             ctx.render("users/show.jte", model("page", page));
         });
